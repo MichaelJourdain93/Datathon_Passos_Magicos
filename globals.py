@@ -1,15 +1,15 @@
 import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/Rogeriom49/datathon_fiap/refs/heads/main/datasets/alunos_2.csv')
+df = pd.read_csv('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/Datasets/dt_curated_passos_magicos.csv')
 
-df_model_report = pd.read_csv('https://raw.githubusercontent.com/Rogeriom49/datathon_fiap/refs/heads/main/datasets/model_resport.csv', sep=';')
+df_model_report = pd.read_csv('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/Notebook/model_passosmag.csv', sep=';')
 
-sUrl =  'https://raw.githubusercontent.com/Rogeriom49/datathon_fiap/refs/heads/main/best_model_random_forest.pkl'
+sUrl =  'https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/best_model_logistic_regression.pkl'
 
-lAno = {'Todos': 'Todos','2020': 2020, '2021': 2021, '2022':2022}
+lAno = {'Todos': 'Todos','2022': 2022, '2023': 2023, '2024':2024}
 
 lIndicadores_1 = ['INDE', 'IAA', 'IEG','IPS','IDA', 'IPP', 'IPV','IAN']
 
 lPedras = ['Topázio', 'Ametista', 'Ágata', 'Quartzo']
 
-repo_url = 'https://github.com/Rogeriom49/datathon_fiap'
+repo_url = 'https://github.com/MichaelJourdain93/Datathon_Passos_Magicos'
