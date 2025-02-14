@@ -42,7 +42,7 @@ with tab1:
     df_ano = globals.df
     if(cbAno != 'Todos'):
         df_ano = globals.df[globals.df['ANO'] == globals.lAno[cbAno]]
-        if(globals.lAno[cbAno] > 2020):
+        if(globals.lAno[cbAno] > 2022):
             df_ano_anterior = globals.df[globals.df['ANO'] == globals.lAno[cbAno]-1]
 
     num_colunas_pedras = len(globals.lPedras)
@@ -50,7 +50,7 @@ with tab1:
     for i, dados in enumerate(globals.lPedras):
         coluna_atual = colunas_2[i % num_colunas_pedras]
         with coluna_atual:
-            if(cbAno != 'Todos' and globals.lAno[cbAno] > 2020):
+            if(cbAno != 'Todos' and globals.lAno[cbAno] > 2022):
                 st.metric(dados, label_visibility='visible', help='Comparativo em relação ao ano anterior', value=np.sum(df_ano['PEDRA'] == dados), delta= int(np.sum(df_ano['PEDRA'] == dados) - np.sum(df_ano_anterior['PEDRA'] == dados)))
             else:
                 st.metric(dados, np.sum(df_ano['PEDRA'] == dados), delta=None)
@@ -62,7 +62,7 @@ with tab1:
         coluna_atual = colunas_1[i % num_colunas]
         with coluna_atual:
             st.subheader(dados, help='Comparativo em relação ao ano anterior')
-            if(cbAno != 'Todos' and globals.lAno[cbAno] > 2020):
+            if(cbAno != 'Todos' and globals.lAno[cbAno] > 2022):
                 st.metric('Média:', df_ano[dados].mean().round(2), border=False, delta=round(df_ano[dados].mean().round(2) - df_ano_anterior[dados].mean().round(2),2))
                 st.metric('Mediana:', df_ano[dados].median().round(2), border=False, delta=round(df_ano[dados].median().round(2) - df_ano_anterior[dados].median().round(2),2))
                 st.metric('Min:', df_ano[dados].min().round(2), border=False, delta=round(df_ano[dados].min().round(2) - df_ano_anterior[dados].min().round(2),2))
