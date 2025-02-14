@@ -52,10 +52,10 @@ with st.sidebar:
 
     st.divider()
 
-    st.subheader("Repositórios do projeto")
-    st.markdown(f""" <div>
-                        <a href="{globals.repo_url}" target="_blank"><img src="https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/github.png?raw=true" width="30"/></a>
-                     </div> """, unsafe_allow_html=True)
+    st.subheader("Repositório do projeto")
+    st.markdown(f"""
+    [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/MichaelJourdain93/Datathon_Passos_Magicos)
+    """, unsafe_allow_html=True)
 
 pg = st.navigation(pages, expanded=False)
 
