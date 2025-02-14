@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title('**Tecnologias**')
+st.title('**Ferramentas**')
 
 with st.container():
     st.write('1. **[Streamlit](https://streamlit.io/)** - Criação do MVP (Produto Mínimo Viável) para aplicações interativas e visuais de ciência de dados.  ')
