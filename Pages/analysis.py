@@ -18,9 +18,6 @@ import graficos
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-# ⚠️ Configuração do layout do Streamlit deve ser a primeira instrução após as importações!
-st.set_page_config(layout="wide")
-
 # Carregar os dados
 df = pd.read_excel('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/raw/main/Datasets/dt_curated_passos_magicos.xlsx', engine='openpyxl')
 
@@ -34,7 +31,6 @@ tab1, tab2 = st.tabs(['Indicadores', 'Análises'])
 
 with tab1:
     cbAno = st.selectbox('Selecione o Ano:', list(globals.lAno.keys()), key="cbAno")
-
     df_ano = globals.df
     if cbAno != 'Todos':
         df_ano = globals.df[globals.df['ANO'] == globals.lAno[cbAno]]
@@ -50,7 +46,6 @@ with tab1:
                 st.metric(dados, np.sum(df_ano['PEDRA'] == dados), delta=int(np.sum(df_ano['PEDRA'] == dados) - np.sum(df_ano_anterior['PEDRA'] == dados)))
             else:
                 st.metric(dados, np.sum(df_ano['PEDRA'] == dados), delta=None)
-
     num_colunas = len(globals.lIndicadores_1)
     colunas_1 = st.columns(num_colunas, border=True)
 
