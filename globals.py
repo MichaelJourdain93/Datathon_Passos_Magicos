@@ -2,7 +2,7 @@ import pandas as pd
 
 df = pd.read_csv('https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/refs/heads/main/Datasets/dt_curated_passos_magicos.csv')
 
-df_model_report = pd.read_csv('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/Notebook/model_passosmag.csv', sep=';')
+df_model_report = pd.read_csv('https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/refs/heads/main/Notebook/model_passosmag.csv', sep=';')
 
 sUrl =  'https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/best_model_logistic_regression.pkl'
 
