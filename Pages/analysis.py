@@ -149,7 +149,7 @@ with tab3:
     st.write("**1. Diversidade de Atendimento:**")
     st.write(f"- A ONG atende {df['Gênero'].nunique()} gêneros diferentes.")
     st.write(f"- Os alunos estão distribuídos em {df['Fase'].nunique()} fases diferentes, mostrando a amplitude do programa.")
-    st.write(" - Os alunos da fase 9 podem ser facilmente assimilado aos da fase 8, segundo o comportamento do seus dados ")
+    st.write(" - Os alunos da fase 9 podem ser facilmente assimilados aos da fase 8, segundo o comportamento do seus dados ")
 
     st.write("**2. Desempenho Acadêmico:**")
     st.write(f"- A média do IDA (Indicador de Desempenho Acadêmico) é {df['IDA'].mean():.2f}.")
