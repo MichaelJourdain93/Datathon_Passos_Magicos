@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 
 # ⚠️ Deve ser o primeiro comando depois das importações!
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title='Datathon Passos Mágicos - FIAP')
 
 import pandas as pd
 import numpy as np
@@ -22,11 +22,7 @@ import seaborn as sns
 import globals
 import graficos
 
-
-st.set_page_config(layout='wide',
-                   page_title='Datathon Passos Mágicos - FIAP')
-
-col1, col2,col3, col4 = st.columns(4, gap='small', vertical_alignment='center', border=False)
+col1, col2, col3, col4 = st.columns(4, gap='small', vertical_alignment='center', border=False)
 
 with col2:
     st.image('assets/images/fiap.png', width=160, clamp=True)
