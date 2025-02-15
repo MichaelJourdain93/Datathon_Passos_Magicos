@@ -8,6 +8,10 @@ Original file is located at
 """
 
 import streamlit as st
+
+# Definir a configuração da página como primeira instrução do script
+st.set_page_config(page_title="Dashboard Passos Mágicos", layout="wide")
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
