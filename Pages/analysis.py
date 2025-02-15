@@ -74,6 +74,21 @@ with tab2:
     ax.set_ylabel('Número de Alunos')
     st.pyplot(fig)
 
+    st.title("Insights e Percentuais - ONG Passos Mágicos")
+
+    st.write("""
+    ## Distribuição de Alunos por Fase
+
+    - **Fase 0:** 22% (maior fase, +600 alunos)
+    - **Fases 1-3:** 55% (maioria dos alunos)
+    - **Fases 4-6:** 16% (fases intermediárias)
+    - **Fases 7-9:** 7% (fases finais)
+
+    ## Conclusão
+
+    A ONG atende principalmente estudantes em fases iniciais, possivelmente focando em crianças e jovens no início da trajetória educacional. Recomenda-se desenvolver estratégias para aumentar a retenção e progressão para fases mais avançadas.
+    """)
+
     st.subheader("Distribuição dos Alunos por Fase")
     fig, ax = plt.subplots(figsize=(12, 6))
     df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax)
@@ -132,30 +147,31 @@ with tab2:
     st.plotly_chart(fig)
 
 # Storytelling
-st.subheader("Storytelling: Impacto da ONG Passos Mágicos")
-st.write("A análise dos dados da ONG Passos Mágicos revela insights importantes sobre o impacto do programa:")
-st.write("**1. Diversidade de Atendimento:**")
-st.write(f"- A ONG atende {df['Gênero'].nunique()} gêneros diferentes.")
-st.write(f"- Os alunos estão distribuídos em {df['Fase'].nunique()} fases diferentes, mostrando a amplitude do programa.")
+with tab3:
+    st.subheader("Storytelling: Impacto da ONG Passos Mágicos")
+    st.write("A análise dos dados da ONG Passos Mágicos revela insights importantes sobre o impacto do programa:")
+    st.write("**1. Diversidade de Atendimento:**")
+    st.write(f"- A ONG atende {df['Gênero'].nunique()} gêneros diferentes.")
+    st.write(f"- Os alunos estão distribuídos em {df['Fase'].nunique()} fases diferentes, mostrando a amplitude do programa.")
 
-st.write("**2. Desempenho Acadêmico:**")
-st.write(f"- A média do IDA (Indicador de Desempenho Acadêmico) é {df['IDA'].mean():.2f}.")
-st.write(f"- Correlação positiva de {df['INDE'].corr(df['IDA']):.2f} entre INDE e IDA.")
+    st.write("**2. Desempenho Acadêmico:**")
+    st.write(f"- A média do IDA (Indicador de Desempenho Acadêmico) é {df['IDA'].mean():.2f}.")
+    st.write(f"- Correlação positiva de {df['INDE'].corr(df['IDA']):.2f} entre INDE e IDA.")
 
-st.write("**3. Engajamento e Desenvolvimento:**")
-st.write(f"- IEG médio: {df['IEG'].mean():.2f}, indicando bom nível de participação.")
-st.write(f"- IPV médio: {df['IPV'].mean():.2f}, mostrando progresso significativo.")
+    st.write("**3. Engajamento e Desenvolvimento:**")
+    st.write(f"- IEG médio: {df['IEG'].mean():.2f}, indicando bom nível de participação.")
+    st.write(f"- IPV médio: {df['IPV'].mean():.2f}, mostrando progresso significativo.")
 
-st.write("**4. Impacto por Tipo de Instituição:**")
-instituicoes = df.groupby('Instituição de ensino')['IDA'].mean().sort_values(ascending=False)
-st.write(f"- Maior IDA médio: '{instituicoes.index[0]}' com {instituicoes.iloc[0]:.2f}.")
-st.write(f"- Menor IDA médio: '{instituicoes.index[-1]}' com {instituicoes.iloc[-1]:.2f}.")
+    st.write("**4. Impacto por Tipo de Instituição:**")
+    instituicoes = df.groupby('Instituição de ensino')['IDA'].mean().sort_values(ascending=False)
+    st.write(f"- Maior IDA médio: '{instituicoes.index[0]}' com {instituicoes.iloc[0]:.2f}.")
+    st.write(f"- Menor IDA médio: '{instituicoes.index[-1]}' com {instituicoes.iloc[-1]:.2f}.")
 
-st.write("**5. Evolução ao Longo do Tempo:**")
-inde_inicial = inde_por_ano['INDE'].iloc[0]
-inde_final = inde_por_ano['INDE'].iloc[-1]
-variacao_inde = (inde_final - inde_inicial) / inde_inicial * 100
-st.write(f"- O INDE médio variou de {inde_inicial:.2f} para {inde_final:.2f}, uma mudança de {variacao_inde:.2f}%.")
+    st.write("**5. Evolução ao Longo do Tempo:**")
+    inde_inicial = inde_por_ano['INDE'].iloc[0]
+    inde_final = inde_por_ano['INDE'].iloc[-1]
+    variacao_inde = (inde_final - inde_inicial) / inde_inicial * 100
+    st.write(f"- O INDE médio variou de {inde_inicial:.2f} para {inde_final:.2f}, uma mudança de {variacao_inde:.2f}%.")
 
-st.write("**Conclusão:**")
-st.write("A análise demonstra que a ONG Passos Mágicos tem um impacto positivo significativo na vida dos estudantes atendidos. O programa melhora o desempenho acadêmico e promove o engajamento e desenvolvimento pessoal.")
+    st.write("**Conclusão:**")
+    st.write("A análise demonstra que a ONG Passos Mágicos tem um impacto positivo significativo na vida dos estudantes atendidos. O programa melhora o desempenho acadêmico e promove o engajamento e desenvolvimento pessoal.")
