@@ -67,7 +67,7 @@ with tab1:
 # Análise descritiva básica
 with tab2:
     st.subheader("Distribuição dos Alunos por Gênero")
-    fig, ax = plt.subplots(figsize=(5, 3))
+    fig, ax = plt.subplots(figsize=(4, 2))
     df['Gênero'].value_counts().plot(kind='bar', ax=ax)
     ax.set_title('Distribuição dos Alunos por Gênero')
     ax.set_xlabel('Gênero')
@@ -91,6 +91,21 @@ with tab2:
     ax.set_title('Distribuição dos Alunos por Fase')
     ax.set_xlabel('Fase')
     ax.set_ylabel('Número de Alunos')
+    st.pyplot(fig)
+
+     
+    st.subheader("Relação entre Idade e INDE por Fase")
+    st.write("""
+    As fases iniciais concentram alunos mais jovens, enquanto as fases intermediárias e avançadas apresentam maior diversidade de faixas etárias. 
+    Isso reflete o esforço da ONG em atender alunos com diferentes níveis de aprendizado, mas também destaca a necessidade de suporte para alunos
+    fora da faixa etária padrão.""")
+    
+    fig, ax = plt.subplots(figsize=(12, 6))
+    sns.scatterplot(x='Idade', y='INDE', hue='Fase', data=pm, palette='tab10', ax=ax)
+    ax.set_title('Relação entre Idade e INDE por Fase')
+    ax.set_xlabel('Idade')
+    ax.set_ylabel('INDE')
+    ax.legend(title='Fase', bbox_to_anchor=(1.05, 1), loc='upper left')
     st.pyplot(fig)
 
     st.subheader("Relação entre INDE e IDA")
@@ -149,6 +164,7 @@ with tab3:
     st.write("**1. Diversidade de Atendimento:**")
     st.write(f"- A ONG atende {df['Gênero'].nunique()} gêneros diferentes.")
     st.write(f"- Os alunos estão distribuídos em {df['Fase'].nunique()} fases diferentes, mostrando a amplitude do programa.")
+    st.write(" Os alunos da fase 9 podem ser facilmente assimilado aos da fase 8, segundo o comportamento do seus dados ")
 
     st.write("**2. Desempenho Acadêmico:**")
     st.write(f"- A média do IDA (Indicador de Desempenho Acadêmico) é {df['IDA'].mean():.2f}.")
