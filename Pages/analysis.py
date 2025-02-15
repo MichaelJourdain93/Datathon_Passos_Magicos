@@ -67,14 +67,14 @@ with tab1:
 # Análise descritiva básica
 with tab2:
     st.subheader("Distribuição dos Alunos por Gênero")
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(9, 4))
     df['Gênero'].value_counts().plot(kind='bar', ax=ax)
     ax.set_title('Distribuição dos Alunos por Gênero')
     ax.set_xlabel('Gênero')
     ax.set_ylabel('Número de Alunos')
     st.pyplot(fig)
 
-    st.title("Distribuição de Alunos por Fase Educacional")
+    st.subheader("Distribuição de Alunos por Fase Educacional")
 
     resumo = (
         "O gráfico mostra que a maior parte dos alunos está nas fases iniciais (0 a 3), representando cerca de 55% do total. "
@@ -85,7 +85,6 @@ with tab2:
             )
     st.write(resumo)
     
-    st.subheader("Distribuição dos Alunos por Fase")
     fig, ax = plt.subplots(figsize=(12, 6))
     df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax)
     ax.set_title('Distribuição dos Alunos por Fase')
