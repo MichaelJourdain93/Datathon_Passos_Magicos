@@ -74,21 +74,6 @@ with tab2:
     ax.set_ylabel('Número de Alunos')
     st.pyplot(fig)
 
-    st.title("Insights e Percentuais - ONG Passos Mágicos")
-
-    st.write("""
-    ## Distribuição de Alunos por Fase
-
-    - **Fase 0:** 22% (maior fase, +600 alunos)
-    - **Fases 1-3:** 55% (maioria dos alunos)
-    - **Fases 4-6:** 16% (fases intermediárias)
-    - **Fases 7-9:** 7% (fases finais)
-
-    ## Conclusão
-
-    A ONG atende principalmente estudantes em fases iniciais, possivelmente focando em crianças e jovens no início da trajetória educacional. Recomenda-se desenvolver estratégias para aumentar a retenção e progressão para fases mais avançadas.
-    """)
-
     st.subheader("Distribuição dos Alunos por Fase")
     fig, ax = plt.subplots(figsize=(12, 6))
     df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax)
