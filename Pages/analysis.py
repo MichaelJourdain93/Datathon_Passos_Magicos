@@ -93,21 +93,6 @@ with tab2:
     ax.set_ylabel('Número de Alunos')
     st.pyplot(fig)
 
-     
-    st.subheader("Relação entre Idade e INDE por Fase")
-    st.write("""
-    As fases iniciais concentram alunos mais jovens, enquanto as fases intermediárias e avançadas apresentam maior diversidade de faixas etárias. 
-    Isso reflete o esforço da ONG em atender alunos com diferentes níveis de aprendizado, mas também destaca a necessidade de suporte para alunos
-    fora da faixa etária padrão.""")
-    
-    fig, ax = plt.subplots(figsize=(12, 6))
-    sns.scatterplot(x='Idade', y='INDE', hue='Fase', data=pm, palette='tab10', ax=ax)
-    ax.set_title('Relação entre Idade e INDE por Fase')
-    ax.set_xlabel('Idade')
-    ax.set_ylabel('INDE')
-    ax.legend(title='Fase', bbox_to_anchor=(1.05, 1), loc='upper left')
-    st.pyplot(fig)
-
     st.subheader("Relação entre INDE e IDA")
     fig = px.scatter(df, x='INDE', y='IDA', color='Pedra', hover_data=['Nome', 'Fase', 'Idade'])
     st.plotly_chart(fig)
