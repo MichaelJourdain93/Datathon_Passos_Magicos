@@ -18,15 +18,14 @@ import graficos
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-# Configuração inicial do Streamlit (DEVE SER O PRIMEIRO COMANDO STREAMLIT)
+# ⚠️ Configuração do layout do Streamlit deve ser a primeira instrução após as importações!
 st.set_page_config(layout="wide")
 
 # Carregar os dados
 df = pd.read_excel('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/raw/main/Datasets/dt_curated_passos_magicos.xlsx', engine='openpyxl')
 
-# Título
-title = "📊 Análise dos Dados da ONG Passos Mágicos"
-st.title(title)
+# Título da Página
+st.title("📊 Análise dos Dados da ONG Passos Mágicos")
 
 # Mostrar os primeiros dados
 st.subheader("Visualização dos Dados")
