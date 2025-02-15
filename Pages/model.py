@@ -15,8 +15,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Definir a configuração da página (DEVE SER O PRIMEIRO COMANDO)
-st.set_page_config(page_title="Dashboard Passos Mágicos", layout="wide")
+# Não há necessidade de st.set_page_config aqui
+# A configuração da página já está definida no index.py
 
 # Função para carregar os dados
 @st.cache_data
