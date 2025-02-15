@@ -67,11 +67,12 @@ with tab1:
 # Análise descritiva básica
 with tab2:
     st.subheader("Distribuição dos Alunos por Gênero")
-    fig, ax = plt.subplots(figsize=(9, 4))
+    fig, ax = plt.subplots(figsize=(7, 3))
     df['Gênero'].value_counts().plot(kind='bar', ax=ax)
     ax.set_title('Distribuição dos Alunos por Gênero')
     ax.set_xlabel('Gênero')
     ax.set_ylabel('Número de Alunos')
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
     st.pyplot(fig)
 
     st.subheader("Distribuição de Alunos por Fase Educacional")
