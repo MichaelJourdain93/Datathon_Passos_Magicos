@@ -8,80 +8,63 @@ Original file is located at
 """
 
 import streamlit as st
+
+# ⚠️ Deve ser o primeiro comando depois das importações!
+st.set_page_config(layout="wide", page_title='Datathon Passos Mágicos - FIAP')
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
 import seaborn as sns
 
-try:
-    from streamlit_option_menu import option_menu
-except ModuleNotFoundError:
-    st.error("O módulo 'streamlit_option_menu' não está instalado. Instale-o com: pip install streamlit-option-menu")
-    st.stop()
+# Importar suas outras funções/módulos
+import globals
+import graficos
 
-# ⚠️ Deve ser o primeiro comando depois das importações!
-st.set_page_config(layout="wide", page_title='Datathon Passos Mágicos - FIAP')
-
-# Exibição de logos
-col1, col2, col3, col4 = st.columns(4, gap='small')
+col1, col2, col3, col4 = st.columns(4, gap='small', vertical_alignment='center', border=False)
 
 with col2:
-    st.image('assets/images/fiap.png', width=160)
+    st.image('assets/images/fiap.png', width=160, clamp=True)
 
 with col3:
-    st.image('assets/images/passos_magicos.png', width=200)
+    st.image('assets/images/passos_magicos.png', width=200, clamp=True)
 
-# Menu lateral para navegação entre páginas
-st.sidebar.title("Navegação")
-selected_page = option_menu(
-    menu_title=None,
-    options=["Introdução", "Análise", "Modelo", "Dashboard", "Ferramentas", "Dicionário", "Conclusão"],
-    icons=["house", "bar-chart", "brain", "clipboard", "tools", "book", "check-circle"],
-    menu_icon="cast",
-    default_index=0,
-    orientation="vertical"
-)
+pages = [
+        st.Page(page="Pages/introducao.py", title="Introdução", default=True),
+        st.Page(page="Pages/analysis.py", title="Análise", default=False),
+        st.Page(page="Pages/model.py", title="Modelo", default=False),
+        st.Page(page="Pages/Dashboard.py", title="Dashboard", default=False),
+        st.Page(page="Pages/Ferramentas.py", title="Ferramentas", default=False),
+        st.Page(page="Pages/dicionario.py", title="Dicionario", default=False),
+        st.Page(page="Pages/conclusao.py", title="Conclusão", default=False),
+]
 
-# Importação e execução da página selecionada
-page_files = {
-    "Introdução": "Pages/introducao.py",
-    "Análise": "Pages/analysis.py",
-    "Modelo": "Pages/model.py",
-    "Dashboard": "Pages/Dashboard.py",
-    "Ferramentas": "Pages/Ferramentas.py",
-    "Dicionário": "Pages/dicionario.py",
-    "Conclusão": "Pages/conclusao.py"
-}
+with st.sidebar:
+    st.subheader('Autores')
+    st.markdown(""" RM355794 - Beatriz Sisa Severino """)
+    st.markdown(""" RM355581 - Bruna Frutuoso Cavalheiro """)
+    st.markdown(""" RM355497 - Michael Jourdain Gbedjinou """)
 
-if selected_page in page_files:
-    try:
-        with open(page_files[selected_page]) as f:
-            exec(f.read())
-    except FileNotFoundError:
-        st.error(f"Erro: O arquivo {page_files[selected_page]} não foi encontrado.")
+    st.divider()
 
-# Sidebar com informações adicionais
-st.sidebar.subheader('Autores')
-st.sidebar.markdown(""" RM355794 - Beatriz Sisa Severino """)
-st.sidebar.markdown(""" RM355581 - Bruna Frutuoso Cavalheiro """)
-st.sidebar.markdown(""" RM355497 - Michael Jourdain Gbedjinou """)
+    st.subheader("Instalando as dependências do app localmente")
+    st.code(body="python -m venv venv", language="shell")
+    st.code(body="python venv/Scripts/activate", language="shell")
+    st.code(body="pip install -r requirements.txt", language="shell")
 
-st.sidebar.divider()
+    st.divider()
 
-st.sidebar.subheader("Instalando as dependências do app localmente")
-st.sidebar.code(body="python -m venv venv", language="shell")
-st.sidebar.code(body="python venv/Scripts/activate", language="shell")
-st.sidebar.code(body="pip install -r requirements.txt", language="shell")
+    st.subheader("Executando localmente")
+    st.code(body="streamlit run index.py", language="shell")
 
-st.sidebar.divider()
+    st.divider()
 
-st.sidebar.subheader("Executando localmente")
-st.sidebar.code(body="streamlit run index.py", language="shell")
+    st.subheader("Repositório do projeto")
+    st.markdown(f"""
+    [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/MichaelJourdain93/Datathon_Passos_Magicos)
+    """, unsafe_allow_html=True)
 
-st.sidebar.divider()
+pg = st.navigation(pages, expanded=False)
 
-st.sidebar.subheader("Repositório do projeto")
-st.sidebar.markdown(f"""
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/MichaelJourdain93/Datathon_Passos_Magicos)
-""", unsafe_allow_html=True)
+pg.run()
