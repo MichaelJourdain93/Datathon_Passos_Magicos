@@ -10,6 +10,6 @@ lAno = {'Todos': 'Todos','2022': 2022, '2023': 2023, '2024':2024}
 
 lIndicadores_1 = ['INDE', 'IAA', 'IEG','IPS','IDA', 'IPP', 'IPV','IAN']
 
-lPedras = ['Topázio', 'Ametista', 'Agata', 'Quartzo']
+lPedras = ['Topázio', 'Ametista', 'Ágata', 'Quartzo']
 
 repo_url = 'https://github.com/MichaelJourdain93/Datathon_Passos_Magicos'
