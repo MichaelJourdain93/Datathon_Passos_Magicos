@@ -22,8 +22,6 @@ import seaborn as sns
 import globals
 import graficos
 
-# Carregar os dados
-df = pd.read_excel('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/raw/main/Datasets/dt_curated_passos_magicos.xlsx', engine='openpyxl')
 
 st.set_page_config(layout='wide',
                    page_title='Datathon Passos Mágicos - FIAP')
