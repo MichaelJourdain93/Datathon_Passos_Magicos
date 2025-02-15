@@ -74,6 +74,17 @@ with tab2:
     ax.set_ylabel('Número de Alunos')
     st.pyplot(fig)
 
+    st.title("Distribuição de Alunos por Fase Educacional")
+
+    resumo = (
+        "O gráfico mostra que a maior parte dos alunos está nas fases iniciais (0 a 3), representando cerca de 55% do total. "
+        "A fase 0 sozinha corresponde a aproximadamente 22%. Conforme a progressão, há uma queda no número de alunos: "
+        "as fases intermediárias (4 a 6) concentram 16%, e as finais (7 a 9) apenas 7%. Isso indica uma possível dificuldade "
+        "na retenção e progressão dos estudantes. A ONG 'Passos Mágicos' pode direcionar estratégias para incentivar a continuidade "
+        "dos estudos e minimizar a evasão nas fases mais avançadas."
+            )
+    st.write(resumo)
+    
     st.subheader("Distribuição dos Alunos por Fase")
     fig, ax = plt.subplots(figsize=(12, 6))
     df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax)
