@@ -27,7 +27,7 @@ st.title("📊 Análise dos Dados da ONG Passos Mágicos")
 # Mostrar os primeiros dados
 st.subheader("Visualização dos Dados")
 
-tab1, tab2 = st.tabs(['Indicadores', 'Análises'])
+tab1, tab2 , tab3  = st.tabs(['Indicadores', 'Análises', 'Observações'])
 
 with tab1:
     cbAno = st.selectbox('Selecione o Ano:', list(globals.lAno.keys()), key="cbAno")
@@ -133,7 +133,7 @@ with tab2:
 
 # Storytelling
 with tab3:
-    st.subheader("Storytelling: Impacto da ONG Passos Mágicos")
+    st.subheader("Impacto da ONG Passos Mágicos")
     st.write("A análise dos dados da ONG Passos Mágicos revela insights importantes sobre o impacto do programa:")
     st.write("**1. Diversidade de Atendimento:**")
     st.write(f"- A ONG atende {df['Gênero'].nunique()} gêneros diferentes.")
