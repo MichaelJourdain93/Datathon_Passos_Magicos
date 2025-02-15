@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/refs/heads/main/Datasets/dt_curated_passos_magicos_.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/refs/heads/main/Datasets/dt_curated_passos_magicos.csv')
 
 df_model_report = pd.read_csv('https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/refs/heads/main/Notebook/model_passosmag.csv', sep=';')
 
