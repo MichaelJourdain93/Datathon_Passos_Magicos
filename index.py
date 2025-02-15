@@ -33,7 +33,7 @@ with col3:
 pages = [
         st.Page(page="Pages/introducao.py", title="Introdução", default=True),
         st.Page(page="Pages/analysis.py", title="Análise", default=False),
-        st.Page(page="Pages/model.py", title="Modelo", default=False),
+        st.Page(page="Pages/modelo.py", title="Modelo", default=False),
         st.Page(page="Pages/Dashboard.py", title="Dashboard", default=False),
         st.Page(page="Pages/Ferramentas.py", title="Ferramentas", default=False),
         st.Page(page="Pages/dicionario.py", title="Dicionario", default=False),
