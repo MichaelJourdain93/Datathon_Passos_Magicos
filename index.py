@@ -8,8 +8,22 @@ Original file is located at
 """
 
 import streamlit as st
+
+# ⚠️ Deve ser o primeiro comando depois das importações!
+st.set_page_config(layout="wide")
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import plotly.express as px
+import seaborn as sns
+
+# Importar suas outras funções/módulos
 import globals
-import os
+import graficos
+
+# Carregar os dados
+df = pd.read_excel('https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/raw/main/Datasets/dt_curated_passos_magicos.xlsx', engine='openpyxl')
 
 st.set_page_config(layout='wide',
                    page_title='Datathon Passos Mágicos - FIAP')
