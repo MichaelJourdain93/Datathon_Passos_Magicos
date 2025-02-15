@@ -16,9 +16,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Configuração da página
-st.set_page_config(page_title="Dashboard Passos Mágicos", layout="wide")
-
 # Carregar os dados
 @st.cache_data
 def load_data():
