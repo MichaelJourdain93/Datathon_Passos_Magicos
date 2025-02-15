@@ -33,9 +33,9 @@ with tab1:
     cbAno = st.selectbox('Selecione o Ano:', list(globals.lAno.keys()), key="cbAno")
     df_ano = globals.df
     if cbAno != 'Todos':
-        df_ano = globals.df[globals.df['ANO'] == globals.lAno[cbAno]]
+        df_ano = globals.df[globals.df['Ano Letivo'] == globals.lAno[cbAno]]
         if globals.lAno[cbAno] > 2022:
-            df_ano_anterior = globals.df[globals.df['ANO'] == globals.lAno[cbAno] - 1]
+            df_ano_anterior = globals.df[globals.df['Ano Letivo'] == globals.lAno[cbAno] - 1]
 
     num_colunas_pedras = len(globals.lPedras)
     colunas_2 = st.columns(num_colunas_pedras)
@@ -43,9 +43,9 @@ with tab1:
         coluna_atual = colunas_2[i % num_colunas_pedras]
         with coluna_atual:
             if cbAno != 'Todos' and globals.lAno[cbAno] > 2022:
-                st.metric(dados, np.sum(df_ano['PEDRA'] == dados), delta=int(np.sum(df_ano['PEDRA'] == dados) - np.sum(df_ano_anterior['PEDRA'] == dados)))
+                st.metric(dados, np.sum(df_ano['Pedra'] == dados), delta=int(np.sum(df_ano['Pedra'] == dados) - np.sum(df_ano_anterior['Pedra'] == dados)))
             else:
-                st.metric(dados, np.sum(df_ano['PEDRA'] == dados), delta=None)
+                st.metric(dados, np.sum(df_ano['Pedra'] == dados), delta=None)
     num_colunas = len(globals.lIndicadores_1)
     colunas_1 = st.columns(num_colunas, border=True)
 
