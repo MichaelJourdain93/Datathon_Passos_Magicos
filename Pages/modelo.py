@@ -43,7 +43,7 @@ gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
 
 # Ajuste o tamanho do gráfico de pizza
-fig, ax = plt.subplots(figsize=(6, 6))  # Tamanho reduzido (6x6 polegadas)
+fig, ax = plt.subplots(figsize=(4, 4))  # Tamanho reduzido (6x6 polegadas)
 ax.pie(gender_counts.values, labels=gender_counts.index, autopct='%1.1f%%', colors=['#FF9999','#66B2FF'])
 st.pyplot(fig)
 
@@ -114,6 +114,6 @@ st.markdown(
 
 if image_url:
     # Ajuste o tamanho da imagem definindo a largura (width) em pixels
-    st.image(image_url, caption=classification, width=200)  # Altere o valor de width conforme necessário
+    st.image(image_url, caption=classification, width=300)  # Altere o valor de width conforme necessário
 else:
     st.write("Fora da classificação.")
