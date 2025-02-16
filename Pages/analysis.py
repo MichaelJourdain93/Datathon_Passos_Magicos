@@ -229,7 +229,7 @@ with tab2:
         fig = go.Figure(data=[
             go.Bar(name=pedra, x=pedra_fase.index, y=pedra_fase[pedra]) for pedra in pedra_fase.columns
         ])
-        fig.update_layout(barmode='stack', title='Distribuição de Pedras por Fase')
+        fig.update_layout(barmode='stack')
         st.plotly_chart(fig)
     
         st.write("""
@@ -270,7 +270,7 @@ with tab2:
         st.subheader("Evolução do INDE ao Longo dos Anos")
         df['Ano Letivo'] = pd.to_datetime(df['Ano Letivo'], format='%Y')
         inde_por_ano = df.groupby('Ano Letivo')['INDE'].mean().reset_index()
-        fig = px.line(inde_por_ano, x='Ano Letivo', y='INDE', title='Evolução do INDE ao Longo dos Anos')
+        fig = px.line(inde_por_ano, x='Ano Letivo', y='INDE')
         st.plotly_chart(fig)
     
         st.write("""
@@ -280,7 +280,7 @@ with tab2:
     
         # Análises de Indicadores Acadêmicos e Engajamento por Instituição de Ensino
         st.subheader("Análises de Indicadores Acadêmicos e Engajamento por Instituição de Ensino")
-        fig1 = px.box(df, x='Instituição de ensino', y='IDA', title='Distribuição do IDA por Instituição de Ensino')
+        fig1 = px.box(df, x='Instituição de ensino', y='IDA')
         st.plotly_chart(fig1)
     
         st.write("""
@@ -290,8 +290,7 @@ with tab2:
     
         # Relação entre Engajamento (IEG) e Ponto de Virada (IPV)
         st.subheader("Relação entre Engajamento (IEG) e Ponto de Virada (IPV)")
-        fig2 = px.scatter(df, x='IEG', y='IPV', color='Pedra', hover_data=['Nome', 'Fase'],
-                          title='Relação entre Engajamento (IEG) e Ponto de Virada (IPV)')
+        fig2 = px.scatter(df, x='IEG', y='IPV', color='Pedra', hover_data=['Nome', 'Fase'])
         st.plotly_chart(fig2)
     
         st.write("""
