@@ -97,6 +97,6 @@ st.subheader("Classificação do INDE Previsto")
 st.write(f"O INDE Previsto de {prediction[0]:.2f} é classificado como: **{classification}**")
 
 if image_url:
-    st.image(image_url, caption=classification, use_column_width=True)
+    st.image(image_url, caption=classification, use_container_width=True)  # Updated parameter
 else:
     st.write("Fora da classificação.")
