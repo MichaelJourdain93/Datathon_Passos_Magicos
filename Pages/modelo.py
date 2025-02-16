@@ -43,8 +43,13 @@ gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
 
 # Ajuste o tamanho do gráfico de pizza
-fig, ax = plt.subplots(figsize=(2, 4))  # Tamanho reduzido (6x6 polegadas)
-ax.pie(gender_counts.values, labels=gender_counts.index, autopct='%1.1f%%', colors=['#FF9999','#66B2FF'])
+fig, ax = plt.subplots(figsize=(3, 3))
+ax.pie(
+    gender_counts.values, 
+    labels=gender_counts.index, 
+    colors=['#FF9999','#66B2FF'], 
+    textprops={'fontsize': 10}  # Aumenta o tamanho da fonte dos rótulos
+)
 st.pyplot(fig)
 
 # Correlação entre indicadores
