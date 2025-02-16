@@ -90,6 +90,7 @@ with tab2:
         df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax, color='lightgreen')
         ax.set_xlabel('Fase')
         ax.set_ylabel('Número de Alunos')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
         st.pyplot(fig)
     
         st.write("""
