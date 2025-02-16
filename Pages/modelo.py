@@ -57,7 +57,7 @@ Cada célula do gráfico mostra o coeficiente de correlação entre dois indicad
 
 # Ajuste o tamanho do heatmap
 correlation_matrix = df[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPV', 'IAN', 'IPP']].corr()
-fig, ax = plt.subplots(figsize=(8, 6))  # Tamanho reduzido (8x6 polegadas)
+fig, ax = plt.subplots(figsize=(6, 4))  # Tamanho reduzido (8x6 polegadas)
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax, fmt=".2f", linewidths=0.5)
 st.pyplot(fig)
 
