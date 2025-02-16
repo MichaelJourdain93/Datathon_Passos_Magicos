@@ -108,6 +108,7 @@ st.markdown(
 )
 
 if image_url:
-    st.image(image_url, caption=classification, use_container_width=True)
+    # Ajuste o tamanho da imagem definindo a largura (width) em pixels
+    st.image(image_url, caption=classification, width=200)  # Altere o valor de width conforme necessário
 else:
     st.write("Fora da classificação.")
