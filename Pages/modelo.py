@@ -41,20 +41,25 @@ col3.metric("INDE Médio", f"{df['INDE'].mean():.2f}")
 # Distribuição de gênero
 gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
-fig, ax = plt.subplots()
+
+# Ajuste o tamanho do gráfico de pizza
+fig, ax = plt.subplots(figsize=(6, 6))  # Tamanho reduzido (6x6 polegadas)
 ax.pie(gender_counts.values, labels=gender_counts.index, autopct='%1.1f%%', colors=['#FF9999','#66B2FF'])
 st.pyplot(fig)
 
 # Correlação entre indicadores
 st.subheader("Correlação entre Indicadores")
+
 # Descrição do heatmap de correlação
 st.write("""
 **Um heatmap de correlação que exibe a relação entre diferentes indicadores e notas dos estudantes atendidos pela ONG "Passos Mágicos".**  
 Cada célula do gráfico mostra o coeficiente de correlação entre dois indicadores ou notas, variando de **-1 a 1**, ou seja, da **menor correlação** a **maior**.
 """)
+
+# Ajuste o tamanho do heatmap
 correlation_matrix = df[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPV', 'IAN', 'IPP']].corr()
-fig, ax = plt.subplots(figsize=(10, 8))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax)
+fig, ax = plt.subplots(figsize=(8, 6))  # Tamanho reduzido (8x6 polegadas)
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax, fmt=".2f", linewidths=0.5)
 st.pyplot(fig)
 
 # Modelo preditivo
