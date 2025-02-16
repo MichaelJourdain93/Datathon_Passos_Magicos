@@ -77,7 +77,7 @@ for col in X.columns:
     inputs[col] = st.slider(f"{col}", 0.0, 10.0, 5.0)
 input_data = np.array([[inputs[col] for col in X.columns]])
 prediction = model.predict(input_data)
-st.metric("INDE Previsto", f"{prediction[0]:.2f}")
+#st.metric("INDE Previsto", f"{prediction[0]:.2f}")
 
 # Classificação do INDE Previsto
 def classify_inde(inde):
