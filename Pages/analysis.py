@@ -132,7 +132,7 @@ with tab2:
     
         # Relação entre Idade e INDE por Gênero
         st.subheader("Relação entre Idade e INDE por Gênero")
-        fig = px.scatter(df, x='Idade', y='INDE', color='Gênero', title='Relação entre Idade e INDE')
+        fig = px.scatter(df, x='Idade', y='INDE', color='Gênero')
         st.plotly_chart(fig)
     
         st.write("""
