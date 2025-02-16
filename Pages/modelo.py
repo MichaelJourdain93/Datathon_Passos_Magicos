@@ -33,30 +33,19 @@ Bem-vindo ao dashboard interativo da ONG Passos Mágicos! Aqui, exploramos o imp
 
 # Visão geral dos dados
 st.header("Nossa Jornada em Números")
-col1, col2, col3 = st.columns(3)
+
+# Calcular o percentual de masculino e feminino
+gender_counts = df['Gênero'].value_counts(normalize=True) * 100  # Calcula a proporção em percentual
+percent_masculino = gender_counts.get('Masculino', 0)  # Obtém o percentual de masculino
+percent_feminino = gender_counts.get('Feminino', 0)    # Obtém o percentual de feminino
+
+# Exibir as métricas
+col1, col2, col3, col4, col5 = st.columns(5)  # Adiciona mais duas colunas para os percentuais
 col1.metric("Total de Estudantes", f"{len(df):,}")
 col2.metric("Média de Idade", f"{df['Idade'].mean():.1f} anos")
 col3.metric("INDE Médio", f"{df['INDE'].mean():.2f}")
-
-# Distribuição de gênero
-gender_counts = df['Gênero'].value_counts()
-st.subheader("Distribuição de Gênero")
-
-# Ajuste o tamanho do gráfico de pizza para um tamanho bem pequeno
-fig, ax = plt.subplots(figsize=(3, 3))  # Tamanho reduzido (3x3 polegadas)
-
-# Gráfico de pizza com percentual e fonte ajustada
-ax.pie(
-    gender_counts.values, 
-    labels=gender_counts.index, 
-    autopct='%1.1f%%',  # Mantém o percentual
-    colors=['#FF9999','#66B2FF'], 
-    textprops={'fontsize': 6}  # Ajusta o tamanho da fonte dos rótulos e percentuais
-)
-
-# Exibir o gráfico no Streamlit
-st.pyplot(fig)
-
+col4.metric("Percentual Masculino", f"{percent_masculino:.1f}%")
+col5.metric("Percentual Feminino", f"{percent_feminino:.1f}%")
 # Correlação entre indicadores
 st.subheader("Correlação entre Indicadores")
 
