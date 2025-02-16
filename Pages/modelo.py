@@ -42,14 +42,19 @@ col3.metric("INDE Médio", f"{df['INDE'].mean():.2f}")
 gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
 
-# Ajuste o tamanho do gráfico de pizza
-fig, ax = plt.subplots(figsize=(3, 3))
+# Ajuste o tamanho do gráfico de pizza para um tamanho bem pequeno
+fig, ax = plt.subplots(figsize=(3, 3))  # Tamanho reduzido (3x3 polegadas)
+
+# Gráfico de pizza com percentual e fonte ajustada
 ax.pie(
     gender_counts.values, 
     labels=gender_counts.index, 
+    autopct='%1.1f%%',  # Mantém o percentual
     colors=['#FF9999','#66B2FF'], 
-    textprops={'fontsize': 10}  # Aumenta o tamanho da fonte dos rótulos
+    textprops={'fontsize': 8}  # Ajusta o tamanho da fonte dos rótulos e percentuais
 )
+
+# Exibir o gráfico no Streamlit
 st.pyplot(fig)
 
 # Correlação entre indicadores
