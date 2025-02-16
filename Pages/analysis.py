@@ -70,7 +70,7 @@ with tab2:
         
         # Distribuição dos Alunos por Gênero
         st.subheader("Distribuição dos Alunos por Gênero")
-        fig, ax = plt.subplots(figsize=(4, 2))
+        fig, ax = plt.subplots(figsize=(12, 4))
         df['Gênero'].value_counts().plot(kind='bar', ax=ax, color=['skyblue', 'lightcoral'])
         ax.set_xlabel('Gênero')
         ax.set_ylabel('Número de Alunos')
