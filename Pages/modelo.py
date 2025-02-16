@@ -78,3 +78,25 @@ for col in X.columns:
 input_data = np.array([[inputs[col] for col in X.columns]])
 prediction = model.predict(input_data)
 st.metric("INDE Previsto", f"{prediction[0]:.2f}")
+
+# Classificação do INDE Previsto
+def classify_inde(inde):
+    if 2.405 <= inde < 5.506:
+        return "Quartzo", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/Quartzo.png"
+    elif 5.506 <= inde < 6.868:
+        return "Ágata", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/%C3%81gata.png"
+    elif 6.868 <= inde < 8.230:
+        return "Ametista", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/Ametista.png"
+    elif 8.230 <= inde <= 9.294:
+        return "Topázio", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/Top%C3%A1zio.png"
+    else:
+        return "Fora da Classificação", None
+
+classification, image_url = classify_inde(prediction[0])
+st.subheader("Classificação do INDE Previsto")
+st.write(f"O INDE Previsto de {prediction[0]:.2f} é classificado como: **{classification}**")
+
+if image_url:
+    st.image(image_url, caption=classification, use_column_width=True)
+else:
+    st.write("Fora da classificação.")
