@@ -43,7 +43,7 @@ gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
 
 # Ajuste o tamanho do gráfico de pizza para um tamanho bem pequeno
-fig, ax = plt.subplots(figsize=(2, 2))  # Tamanho reduzido (3x3 polegadas)
+fig, ax = plt.subplots(figsize=(3, 3))  # Tamanho reduzido (3x3 polegadas)
 
 # Gráfico de pizza com percentual e fonte ajustada
 ax.pie(
