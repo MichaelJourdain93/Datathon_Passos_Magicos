@@ -51,7 +51,7 @@ ax.pie(
     labels=gender_counts.index, 
     autopct='%1.1f%%',  # Mantém o percentual
     colors=['#FF9999','#66B2FF'], 
-    textprops={'fontsize': 4}  # Ajusta o tamanho da fonte dos rótulos e percentuais
+    textprops={'fontsize': 6}  # Ajusta o tamanho da fonte dos rótulos e percentuais
 )
 
 # Exibir o gráfico no Streamlit
