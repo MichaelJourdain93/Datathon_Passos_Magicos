@@ -47,6 +47,11 @@ st.pyplot(fig)
 
 # Correlação entre indicadores
 st.subheader("Correlação entre Indicadores")
+# Descrição do heatmap de correlação
+st.write("""
+**Um heatmap de correlação que exibe a relação entre diferentes indicadores e notas dos estudantes atendidos pela ONG "Passos Mágicos".**  
+Cada célula do gráfico mostra o coeficiente de correlação entre dois indicadores ou notas, variando de **-1 a 1**, ou seja, da **menor correlação** a **maior**.
+""")
 correlation_matrix = df[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPV', 'IAN', 'IPP']].corr()
 fig, ax = plt.subplots(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', ax=ax)
@@ -87,16 +92,22 @@ def classify_inde(inde):
         return "Ágata", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/agata.png"
     elif 6.868 <= inde < 8.230:
         return "Ametista", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/ametista.png"
-    elif 8.230 <= inde <= 10:
+    elif 8.230 <= inde <= 9.294:
         return "Topázio", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/topazio.png"
     else:
         return "Fora da Classificação", None
 
+# Classificação do INDE Previsto
 classification, image_url = classify_inde(prediction[0])
 st.subheader("Classificação do INDE Previsto")
-st.write(f"O INDE Previsto de {prediction[0]:.2f} é classificado como: **{classification}**")
+
+# Exibir o INDE Previsto em azul e negrito
+st.markdown(
+    f"O INDE Previsto de <span style='color: blue; font-weight: bold;'>{prediction[0]:.2f}</span> é classificado como: **{classification}**",
+    unsafe_allow_html=True
+)
 
 if image_url:
-    st.image(image_url, caption=classification, use_container_width=True)  # Updated parameter
+    st.image(image_url, caption=classification, use_container_width=True)
 else:
     st.write("Fora da classificação.")
