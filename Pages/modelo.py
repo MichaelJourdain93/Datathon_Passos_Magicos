@@ -43,7 +43,7 @@ gender_counts = df['Gênero'].value_counts()
 st.subheader("Distribuição de Gênero")
 
 # Ajuste o tamanho do gráfico de pizza para um tamanho bem pequeno
-fig, ax = plt.subplots(figsize=(3, 3))  # Tamanho reduzido (3x3 polegadas)
+fig, ax = plt.subplots(figsize=(2, 2))  # Tamanho reduzido (3x3 polegadas)
 
 # Gráfico de pizza com percentual e fonte ajustada
 ax.pie(
@@ -51,7 +51,7 @@ ax.pie(
     labels=gender_counts.index, 
     autopct='%1.1f%%',  # Mantém o percentual
     colors=['#FF9999','#66B2FF'], 
-    textprops={'fontsize': 8}  # Ajusta o tamanho da fonte dos rótulos e percentuais
+    textprops={'fontsize': 4}  # Ajusta o tamanho da fonte dos rótulos e percentuais
 )
 
 # Exibir o gráfico no Streamlit
