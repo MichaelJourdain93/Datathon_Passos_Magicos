@@ -82,13 +82,13 @@ st.metric("INDE Previsto", f"{prediction[0]:.2f}")
 # Classificação do INDE Previsto
 def classify_inde(inde):
     if 2.405 <= inde < 5.506:
-        return "Quartzo", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/quartzo.png"
+        return "Quartzo", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/quartzo.png"
     elif 5.506 <= inde < 6.868:
-        return "Ágata", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/agata.png"
+        return "Ágata", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/agata.png"
     elif 6.868 <= inde < 8.230:
-        return "Ametista", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/ametista.png"
+        return "Ametista", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/ametista.png"
     elif 8.230 <= inde <= 10:
-        return "Topázio", "https://github.com/MichaelJourdain93/Datathon_Passos_Magicos/blob/main/assets/images/topazio.png"
+        return "Topázio", "https://raw.githubusercontent.com/MichaelJourdain93/Datathon_Passos_Magicos/main/assets/images/topazio.png"
     else:
         return "Fora da Classificação", None
 
