@@ -70,12 +70,17 @@ with tab2:
         
         # Distribuição dos Alunos por Gênero
         st.subheader("Distribuição dos Alunos por Gênero")
+        # Criar DataFrame com alunos únicos (sem duplicatas de nome)
+        df_unique = df.drop_duplicates(subset='Nome')
+
+        # Plotar o gráfico com base nos alunos únicos
         fig, ax = plt.subplots(figsize=(12, 4))
-        df['Gênero'].value_counts().plot(kind='bar', ax=ax, color=['skyblue', 'lightcoral'])
+        df_unique['Gênero'].value_counts().plot(kind='bar', ax=ax, color=['skyblue', 'lightcoral'])
         ax.set_xlabel('Gênero')
-        ax.set_ylabel('Número de Alunos')
+        ax.set_ylabel('Número de Alunos (Únicos)')  # Legenda atualizada para refletir a mudança
         ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
         st.pyplot(fig)
+
     
         st.write("""
         O número de alunos do gênero **feminino** é ligeiramente maior do que o do gênero **masculino**,
