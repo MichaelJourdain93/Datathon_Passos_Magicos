@@ -12,7 +12,7 @@ import streamlit as st
 
 st.title('**Introdução**')
 
-tab1, tab2, tab3 = st.tabs(['O que é a Associação Passos Mágicos?', 'PEDE (Pesquisa Extensiva do Desenvolvimento Educacional)', 'O que deve ser solucionado no Datathon'])
+tab1, tab2, tab3 = st.tabs(['O que é a Associação Passos Mágicos?', 'PEDE (Pesquisa Extensiva do Desenvolvimento Educacional)', 'O que deve ser solucionado no Datathon?'])
 
 with tab1:
     st.subheader('**O que é a Associação Passos Mágicos?**')
@@ -40,6 +40,6 @@ with tab2:
     """)
 
 with tab3:
-    st.subheader("O probelma que deve ser solucionado no Datathon")
+    st.subheader("O problema que deve ser solucionado no Datathon")
 
     st.write(""" O grande objetivo do Datathon é realizar uma proposta analítica para demonstrar o impacto que a ONG “Passos Mágicos” tem realizado sobre a comunidade que atende. E demonstrar os impactos que a ONG “Passos Mágicos” realizou sobre a performance de estudantes e levantar indicadores de performance. Criando um dashboard e storytelling contando uma história com os dados para auxiliar a Passos Mágicos a tomar as melhores decisões com base nos indicadores e conhecer o perfil dos estudantes. """)
