@@ -83,14 +83,13 @@ with tab2:
 
     
         st.write("""
-        O número de alunos do gênero **feminino** é ligeiramente maior do que o do gênero **masculino**,
-        com ambos os grupos apresentando valores próximos de **1500 alunos**. Essa distribuição sugere uma
-        relativa paridade entre os gêneros, indicando que não há uma diferença significativa na quantidade
+        O número de alunos do gênero **feminino** (57%) é ligeiramente maior do que o do gênero **masculino**(43%),
+        . Essa distribuição sugere uma relativa paridade entre os gêneros, indicando que não há uma grande disparidade significativa na quantidade
         de alunos entre homens e mulheres.
         """)
     
         # Distribuição de Alunos por Fase Educacional
-        st.subheader("Distribuição de Alunos por Fase Educacional")
+        st.subheader("Distribuição  acumulada de Alunos por Fase Educacional")
         fig, ax = plt.subplots(figsize=(12, 6))
         df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax, color='lightgreen')
         ax.set_xlabel('Fase')
@@ -108,12 +107,17 @@ with tab2:
     
         # Distribuição de Alunos por Idade
         st.subheader("Distribuição de Alunos por Idade")
+       # Criar DataFrame com alunos únicos (sem duplicatas de nome)
+        df_unique = df.drop_duplicates(subset='Nome')
+
+        # Plotar o gráfico com base nos alunos únicos
         fig, ax = plt.subplots(figsize=(10, 6))
-        df['Idade'].value_counts().sort_index().plot(kind='bar', color='skyblue', ax=ax)
+        age_counts = df_unique['Idade'].value_counts().sort_index()
+        age_counts.plot(kind='bar', color='skyblue', ax=ax)
         ax.set_xlabel('Idade')
-        ax.set_ylabel('Número de Alunos')
-        ax.set_xticks(range(len(df['Idade'].unique())))
-        ax.set_xticklabels(df['Idade'].value_counts().sort_index().index, rotation=45)
+        ax.set_ylabel('Número de Alunos (Únicos)')  # Legenda atualizada
+        ax.set_xticks(range(len(age_counts)))
+        ax.set_xticklabels(age_counts.index, rotation=45)
         st.pyplot(fig)
     
         st.write("""
