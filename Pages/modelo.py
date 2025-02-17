@@ -34,18 +34,25 @@ Bem-vindo ao dashboard interativo da ONG Passos Mágicos! Aqui, exploramos o imp
 # Visão geral dos dados
 st.header("Nossa Jornada em Números")
 
-# Calcular o percentual de masculino e feminino
-gender_counts = df['Gênero'].value_counts(normalize=True) * 100  # Calcula a proporção em percentual
-percent_masculino = gender_counts.get('Masculino', 0)  # Obtém o percentual de masculino
-percent_feminino = gender_counts.get('Feminino', 0)    # Obtém o percentual de feminino
+# Calcular o total de alunos distintos (baseado na coluna 'Nome')
+total_alunos = df['Nome'].nunique()  # Quantidade distinta de nomes
+
+# Filtrar o DataFrame para remover duplicatas de nomes (garantir alunos únicos)
+df_unique = df.drop_duplicates(subset='Nome')
+
+# Calcular o percentual de masculino e feminino com base nos alunos únicos
+gender_counts = df_unique['Gênero'].value_counts()
+percent_masculino = (gender_counts.get('Masculino', 0) / total_alunos) * 100
+percent_feminino = (gender_counts.get('Feminino', 0) / total_alunos) * 100
 
 # Exibir as métricas
-col1, col2, col3, col4, col5 = st.columns(5)  # Adiciona mais duas colunas para os percentuais
-col1.metric("Total de Estudantes", f"{len(df):,}")
+col1, col2, col3, col4, col5 = st.columns(5)
+col1.metric("Total de Estudantes", f"{total_alunos:,}")  # Usa a contagem distinta
 col2.metric("Média de Idade", f"{df['Idade'].mean():.1f} anos")
 col3.metric("INDE Médio", f"{df['INDE'].mean():.2f}")
 col4.metric("Percentual Masculino", f"{percent_masculino:.1f}%")
 col5.metric("Percentual Feminino", f"{percent_feminino:.1f}%")
+
 # Correlação entre indicadores
 st.subheader("Correlação entre Indicadores")
 
