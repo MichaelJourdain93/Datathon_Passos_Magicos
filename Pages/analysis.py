@@ -122,7 +122,7 @@ with tab2:
     
         st.write("""
         - A maior concentração de alunos está na faixa etária de **12 anos**, seguida por **11 e 13 anos**.
-        - O número de alunos diminui drasticamente a partir dos **16 anos**, indicando maior evasão ou menor retenção em idades mais avançadas.
+        - O número de alunos diminui drasticamente a partir dos **17 e 18 anos**, indicando maior evasão ou menor retenção em idades mais avançadas.
         - Esses dados reforçam a importância de intervenções direcionadas para alunos mais velhos, que apresentam maior defasagem e menor presença no programa.
         """)
     
