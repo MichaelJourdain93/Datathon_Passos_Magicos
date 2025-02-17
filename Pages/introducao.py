@@ -12,7 +12,7 @@ import streamlit as st
 
 st.title('**Introdução**')
 
-tab1, tab2, tab3 = st.tabs(['O que é a Associação Passos Mágicos?', 'PEDE (Pesquisa Extensiva do Desenvolvimento Educacional)', 'O problema que deve ser solucionado no Datathon'])
+tab1, tab2, tab3 = st.tabs(['O que é a Associação Passos Mágicos?', 'PEDE (Pesquisa Extensiva do Desenvolvimento Educacional)', 'O que deve ser solucionado no Datathon'])
 
 with tab1:
     st.subheader('**O que é a Associação Passos Mágicos?**')
