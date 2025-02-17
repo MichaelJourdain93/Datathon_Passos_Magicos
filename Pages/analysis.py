@@ -89,7 +89,7 @@ with tab2:
         """)
     
         # Distribuição de Alunos por Fase Educacional
-        st.subheader("Distribuição  acumulada de Alunos por Fase Educacional")
+        st.subheader("Distribuição de Alunos por Fase Educacional")
         fig, ax = plt.subplots(figsize=(12, 6))
         df['Fase'].value_counts().sort_index().plot(kind='bar', ax=ax, color='lightgreen')
         ax.set_xlabel('Fase')
