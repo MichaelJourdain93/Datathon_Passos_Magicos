@@ -59,7 +59,7 @@ st.subheader("Correlação entre Indicadores")
 # Descrição do heatmap de correlação
 st.write("""
 **Um heatmap de correlação que exibe a relação entre diferentes indicadores e notas dos estudantes atendidos pela ONG "Passos Mágicos".**  
-Cada célula do gráfico mostra o coeficiente de correlação entre dois indicadores ou notas, variando de **-1 a 1**, ou seja, da **menor correlação** a **maior**.
+Cada célula do gráfico mostra o coeficiente de correlação entre dois indicadores, variando de **-1 a 1**, ou seja, da **menor correlação** a **maior**.
 """)
 
 # Ajuste o tamanho do heatmap
